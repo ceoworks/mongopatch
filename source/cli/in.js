@@ -107,7 +107,7 @@ var validate = function(patch, options) {
 var parse = function(argv) {
 	var options = cmd.parse(argv);
 	var patch = options._[0];
-
+	options.db = process.MONGO_DB || options.db;
 	patch = patch && path.resolve(process.cwd(), patch);
 
 	delete options._;
